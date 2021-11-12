@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet" />
+    <!--insertion de la feuille de style-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>TD JavaScript CDUI</title>
+</head>
+<body>
+    <!--NAVBAR-->
+
+    <nav>
+        <div class="row justify-content-center">
+            <h1 id="myName"></h1>
+        </div>
+        <ul id="menu" class="topnav">
+            <li><a href="#landscape" title="lien vers la page Landscape">Landscapes</a></li>
+            <li><a href="#portraits" title="lien vers la page Portrait">Portraits</a></li>
+            <li><a href="#biography" title="lien vers la page Biographie">Biographie</a></li>
+            <li><a href="#contact" title="lien vers la page Contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container" id="whatever">
+        <p class="justify-content-center">Le site n’est pas tout à fait terminé ! Pour être informé de son ouverture officielle, n’hésites pas à laisser ton mail.</p>
+        <form action="#" method="POST">
+            <label for="yourMail">Votre Email :</label>
+            <input type="email" class="form-control my-2" id="yourMail" name="yourMail" placeholder="Veuillez entrez votre email">
+            <button type="button" class="btn btn-primary" id="myButton">Envoyer</button>
+        </form>
+    </div>
+    <!--insertion des script-->
+    <script>
+        // variable pour le nom.
+        var firstName = window.prompt('Quel est ton Prénom ?'); //On récupère la valeur du prénom via une boîte de dialogue qu'on stock dans la variable '.firstName'
+        var elementNom = document.getElementById('myName'); //On déclare une variable '.elementNom' qui reprend l'élément dont l'ID est '.myName'
+        elementNom.innerText = `Bonjour ${firstName}`; //j'écris du texte dans l'élément [X] via la méthode '.innerText'
+        //variable pour le mail
+        var elementButton = document.getElementById('myButton');
+        // j'ajoute un écouteur d'évènement sur  elementButon via la méthode .addEventListener
+        // j'écoute l'évènement click
+        //Au click, j'exécute une fonction
+        elementButton.addEventListener('click', function() { //autre méthode : | function showPopup() |, donc mettre sur le bouton : | onclick="showPopUp() |"
+            // je récupère la valeur de l'input dont l'id est main via la méthode '.value'
+            var userMail = document.getElementById('yourMail').value;
+            // e fais un message d'alerte contenant les varaibles '.firstName' et 'userMail'
+            alert(`Merci ${firstName} nous vous enverrons une réponse à l'adresse suivante : ${userMail}`);
+            elementNom.innerText = `Merci ${firstName}`; // dès qu'on valide la boite de dialogue, nous modifions la page html
+            var elementWhatever = document.getElementById('whatever');
+            elementWhatever.style.display = 'none';
+        });
+
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
